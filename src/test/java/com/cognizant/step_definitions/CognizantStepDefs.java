@@ -79,28 +79,20 @@ public class CognizantStepDefs {
         wait.until(ExpectedConditions.visibilityOf(automotivePage.firstNameInputBox));
 
         automotivePage.firstNameInputBox.sendKeys(faker.toString() + Keys.ENTER);
-        Thread.sleep(300);
-
         automotivePage.lastNameInputBox.sendKeys(faker.toString() + Keys.ENTER);
-        Thread.sleep(300);
         automotivePage.phoneInputBox.sendKeys(faker.numerify("###-########"));
-        Thread.sleep(300);
         automotivePage.companyInputBox.sendKeys(faker.toString()+Keys.ENTER);
-        Thread.sleep(300);
         automotivePage.jobTitleInputBox.sendKeys(faker.toString() + Keys.ENTER);
-        Thread.sleep(300);
 
         Select select1 = new Select(automotivePage.countrySelectBox);
         select1.selectByVisibleText("Germany");
 
-        Thread.sleep(300);
+        wait.until(ExpectedConditions.textToBePresentInElementValue(automotivePage.countrySelectBox, "670257"));
+
         Select select2= new Select(automotivePage.inquirySelectBox);
         select2.selectByVisibleText("Career Seekers");
 
-        Thread.sleep(300);
-
         automotivePage.messageInputBox.sendKeys(faker.toString()+Keys.ENTER);
-        Thread.sleep(300);
 
     }
 
